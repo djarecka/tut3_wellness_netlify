@@ -3,10 +3,9 @@ import Layout from "../components/layout"
 
 export default () => (
   <Layout>
-    <h1>Hi! I'm building a fake Gatsby site as part of a tutorial!</h1>
+    <h1>WellBeing Diary!</h1>
     <p>
-      What do I like to do? Lots of course but definitely enjoy building
-      websites.
+      Welcome to the WellBeing Diary!
     </p>
   </Layout>
 )
