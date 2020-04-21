@@ -2,28 +2,28 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { Router } from "@reach/router"
+import { login, isAuthenticated, getProfile } from "../utils/auth"
 
 // nie wiem czy cos musi byc w tych <p>
-// const HomeAccount = ({ user }) => {
-//   return <p>Hi, {user.name ? user.name : "friend"}!</p>
-// }
-const HomeAccount = () => <p></p>
+const HomeAccount = ({ user }) => {
+  return <p>Hi, {user.name ? user.name : "friend"}!</p>
+}
 const Settings = () => <p></p>
 const Diary = () => <p></p>
 
 
-const Account = () => (
-  // if (!isAuthenticated()) {
-  //   login()
-  //   return <p>Redirecting to login...</p>
-  // }
+const Account = () => {
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
 
-  // const user = getProfile()
+  const user = getProfile()
 
-  // return (
+  return (
   <>
    <Router>
-    <HomeAccount path="/account" />
+  <HomeAccount path="/account" user={user}/>
     <Settings path="/account/settings" />
     <Diary path="/account/diary" />
   </Router>
@@ -37,6 +37,6 @@ const Account = () => (
   </Layout>
   </>
 )
-  
+}  
 
 export default Account
