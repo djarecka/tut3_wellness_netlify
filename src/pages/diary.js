@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { login, isAuthenticated, getProfile } from "../utils/auth"
 import { Router } from "@reach/router"
@@ -24,17 +23,13 @@ const Account = () => {
   <>
    <Router>
     <HomeAccount path="/account" user={user}/>
-    <Settings path="/settings/" />
-    <Diary path="/diary/" />
+    <Settings path="/settings" />
+    <Diary path="/diary" />
   </Router>
 
   <Layout>
-    <p>This is going to be a protected route.</p>
-    <ul>
-      <li><Link to="/diary/">Diary</Link>{" "}</li>
-      <li><Link to="/settings/">Personal Settings</Link>{" "}</li>
-    </ul>
-  </Layout>
+    <p>This is diary</p>
+    </Layout>
    </>
 )
   }
