@@ -4,25 +4,26 @@ import { login, isAuthenticated, getProfile } from "../utils/auth"
 import { Router } from "@reach/router"
 
 // nie wiem czy cos musi byc w tych <p>
-const HomeAccount = ({ user }) => {
-  return <p>Hi, {user.name ? user.name : "friend"}!</p>
-}
+// const HomeAccount = ({ user }) => {
+//   return <p>Hi, {user.name ? user.name : "friend"}!</p>
+// }
+const HomeAccount = () => <p></p>
 const Settings = () => <p></p>
 const Diary = () => <p></p>
 
 
-const Account = () => {
-  if (!isAuthenticated()) {
-    login()
-    return <p>Redirecting to login...</p>
-  }
+const SettingsPg = () => (
+  // if (!isAuthenticated()) {
+  //   login()
+  //   return <p>Redirecting to login...</p>
+  // }
 
-  const user = getProfile()
+  // const user = getProfile()
 
-  return (
+  // return (
   <>
    <Router>
-    <HomeAccount path="/account" user={user}/>
+    <HomeAccount path="/account"/>
     <Settings path="/settings" />
     <Diary path="/diary" />
   </Router>
@@ -32,6 +33,6 @@ const Account = () => {
   </Layout>
    </>
 )
-  }
 
-export default Account
+
+export default SettingsPg
