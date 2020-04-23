@@ -9,23 +9,23 @@ import { Router } from "@reach/router"
 // }
 const HomeAccount = () => <p>"BLE"</p>
 const Settings = () => <p></p>
-const Diary = () => <p></p>
+const Diary = ({user}) => <p>{user.name ? user.name : "unknown"}</p>
 
 
-const DiaryPg = () => (
-  // if (!isAuthenticated()) {
-  //   login()
-  //   return <p>Redirecting to login...</p>
-  // }
+const DiaryPg = () => {
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
 
-  // const user = getProfile()
+  const user = getProfile()
 
-  // return (
+  return (
   <>
    <Router>
     <HomeAccount path="/account" />
     <Settings path="/settings" />
-    <Diary path="/diary" />
+    <Diary path="/diary" user={user} />
   </Router>
 
   <Layout>
@@ -33,6 +33,6 @@ const DiaryPg = () => (
     </Layout>
    </>
 )
-
+  }
 
 export default DiaryPg

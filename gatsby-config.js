@@ -1,6 +1,5 @@
 
 module.exports = {
-  pathPrefix: "/tut3_wellness",
   plugins: [
     {
       resolve: `gatsby-plugin-typography`,

@@ -8,23 +8,23 @@ import { Router } from "@reach/router"
 //   return <p>Hi, {user.name ? user.name : "friend"}!</p>
 // }
 const HomeAccount = () => <p></p>
-const Settings = () => <p></p>
+const Settings = ({user}) => <p>{user.name ? user.name : "unknown"}</p>
 const Diary = () => <p></p>
 
 
-const SettingsPg = () => (
-  // if (!isAuthenticated()) {
-  //   login()
-  //   return <p>Redirecting to login...</p>
-  // }
+const SettingsPg = () => {
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
 
-  // const user = getProfile()
+  const user = getProfile()
 
-  // return (
+  return (
   <>
    <Router>
     <HomeAccount path="/account"/>
-    <Settings path="/settings" />
+    <Settings path="/settings" user={user}/>
     <Diary path="/diary" />
   </Router>
 
@@ -33,6 +33,6 @@ const SettingsPg = () => (
   </Layout>
    </>
 )
-
+  }
 
 export default SettingsPg

@@ -38,6 +38,10 @@ const auth = isBrowser
   }
   
   const setSession = (cb = () => {}) => (err, authResult) => {
+    // if (!isBrowser) {
+    //   return;
+    // }  
+    
     if (err) {
       navigate("/")
       cb()
@@ -53,6 +57,7 @@ const auth = isBrowser
       localStorage.setItem("isLoggedIn", true)
       navigate("/account")
       cb()
+      // return
     }
   }
   
@@ -69,6 +74,12 @@ const auth = isBrowser
   }
 
   export const silentAuth = callback => {
+    if (!isBrowser) {
+      return;
+    }
     if (!isAuthenticated()) return callback()
     auth.checkSession({}, setSession(callback))
   }
+
+
+  
