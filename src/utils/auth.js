@@ -43,7 +43,7 @@ const auth = isBrowser
     // }  
     
     if (err) {
-      console.error(err);
+      console.log(err);
 //      navigate("/")
       cb()
       return
